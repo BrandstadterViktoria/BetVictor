@@ -7,6 +7,28 @@
   <version>1.0-SNAPSHOT</version>
   <name>BetVictor</name>
   <url>http://maven.apache.org</url>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.lazerycode.selenium</groupId>
+        <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+        <version>1.0.18</version>
+        <configuration>
+          <!-- root directory that downloaded driver binaries will be stored in -->
+          <rootStandaloneServerDirectory>src/resources/selenium_standalone_binaries</rootStandaloneServerDirectory>
+          <!-- Where you want to store downloaded zip files -->
+          <downloadedZipFileDirectory>src/resources/selenium_standalone_zips</downloadedZipFileDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>selenium</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -108,4 +130,5 @@
         <scope>test</scope>
       </dependency>
     </dependencies>
+
 </project>
